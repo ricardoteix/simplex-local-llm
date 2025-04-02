@@ -30,12 +30,15 @@ Then, in the terminal, download one of the models compatible with Ollama. Note t
 of them can fill up your machine's storage, as these are large models.
 
 Some of them are listed in the commands below. In my tests, I used ``qwen2.5:latest`` and ``deepseek-r1:8b``.
-``ollama pull mistral``  
-``ollama pull tinyllama``  
-``ollama pull qwen2.5:latest``  
-``ollama pull deepseek-r1:1.5b``  
-``ollama pull deepseek-r1:7b``  
-``ollama pull deepseek-r1:8b``  
+
+```bash
+ollama pull mistral
+ollama pull tinyllama 
+ollama pull qwen2.5:latest  
+ollama pull deepseek-r1:1.5b  
+ollama pull deepseek-r1:7b  
+ollama pull deepseek-r1:8b
+```  
 
 Then,  
 

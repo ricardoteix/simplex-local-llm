@@ -31,12 +31,14 @@ deles pode complemeter o armazenamento em disco da sua máquina, pois são model
 
 Alguns deles estão listados nos comandos abaixo. Nos meus testes usei ``qwen2.5:latest`` e ``deepseek-r1:8b``.
 
-``ollama pull mistral``
-``ollama pull tinyllama``
-``ollama pull qwen2.5:latest``
-``ollama pull deepseek-r1:1.5b``
-``ollama pull deepseek-r1:7b``
-``ollama pull deepseek-r1:8b``
+```bash
+ollama pull mistral
+ollama pull tinyllama 
+ollama pull qwen2.5:latest  
+ollama pull deepseek-r1:1.5b  
+ollama pull deepseek-r1:7b  
+ollama pull deepseek-r1:8b
+```  
 
 Em seguida
 
