@@ -36,3 +36,6 @@ On the home page, you can upload PDFs for training or access the page to execute
 
 ## Acknowledgment
 Based on the tutorial by [Nasser Maronie](https://dev.to/nassermaronie/build-your-own-rag-app-a-step-by-step-guide-to-setup-llm-locally-using-ollama-python-and-chromadb-b12).
+
+
+

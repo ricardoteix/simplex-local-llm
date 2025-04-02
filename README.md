@@ -34,6 +34,7 @@ Acesse a interface com
 
 Na página inicial você poderá enviar os PDFs para treinamento ou acessar a página para executar os promps.
 
-## Acknowledgment
+## Agradecimento
+
 Baseado no tutorial de [Nasser Maronie](https://dev.to/nassermaronie/build-your-own-rag-app-a-step-by-step-guide-to-setup-llm-locally-using-ollama-python-and-chromadb-b12).
 
