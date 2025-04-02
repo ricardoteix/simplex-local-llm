@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed PDF</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Incorporar PDF</h1>
+        <form action="/embed" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Selecione o arquivo PDF:</label>
+                <input type="file" class="form-control-file" id="file" name="file" accept=".pdf" onchange="onSelect()">
+            </div>
+            <button id="send" type="submit" class="btn btn-primary">Enviar e incorporar</button>
+        </form>
+    </div>
+    <script>
+        var send = document.getElementById("send");
+        send.disabled = true;
+
+        function onSelect() {
+            send.disabled = false;
+        }
+    </script>
+</body>
+</html>

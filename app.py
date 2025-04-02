@@ -3,15 +3,30 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from embed import embed
 from query import query
-from get_vector_db import get_vector_db
+import markdown
 
 TEMP_FOLDER = os.getenv('TEMP_FOLDER', './_temp')
 os.makedirs(TEMP_FOLDER, exist_ok=True)
 
 app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/embed_form')
+def embed_form():
+    return render_template('embed_form.html')
+
+
+@app.route('/query_form')
+def query_form():
+    return render_template('query_form.html')
 
 
 @app.route('/embed', methods=['POST'])
@@ -37,9 +52,12 @@ def route_query():
     response = query(data.get('query'))
 
     if response:
-        return jsonify({"message": response}), 200
+        # Converter Markdown para HTML
+        html_response = markdown.markdown(response)
+        return jsonify({"message": html_response}), 200
 
     return jsonify({"error": "Something went wrong"}), 400
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8080, debug=True)

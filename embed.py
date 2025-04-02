@@ -43,10 +43,44 @@ def embed(file):
         file_path = save_file(file)
         chunks = load_and_split_data(file_path)
         db = get_vector_db()
-        db.add_documents(chunks)
+        ids = db.add_documents(chunks)
+        print(ids)
         db.persist()
         os.remove(file_path)
+
+        # Store IDs associated with the original filename (without timestamp prefix)
+        original_filename = secure_filename(file.filename)
+        # store_ids(original_filename, ids['ids'])  # Store the ids.
 
         return True
 
     return False
+
+
+# https://gemini.google.com/app/107465067b4bc111
+def unembed(ids_to_remove):
+    try:
+        db = get_vector_db()
+        db.delete(ids=ids_to_remove)
+        db.persist()
+        return True
+    except Exception as e:
+        print(f"Error unembedding documents: {e}")
+        return False
+
+
+# Function to store the mapping of original filename to document IDs
+def store_ids(filename, ids):
+    # You can use a dictionary or a database to store this mapping
+    # For simplicity, we'll use a dictionary here
+    if not hasattr(store_ids, "filename_to_ids"):
+        store_ids.filename_to_ids = {}
+    store_ids.filename_to_ids[filename] = ids
+
+
+# Function to retrieve document IDs based on the original filename
+def get_ids_by_filename(filename):
+    if hasattr(store_ids, "filename_to_ids") and filename in store_ids.filename_to_ids:
+        return store_ids.filename_to_ids[filename]
+    else:
+        return None
