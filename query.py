@@ -18,7 +18,6 @@ def get_prompt():
         goal is to help the user overcome some of the limitations of the distance-based
         similarity search. Provide these alternative questions separated by newlines. 
         Always answer with user's original language. 
-        Considere a macro context as 'ports operations and activities'. 
         Original question: {question}""",
     )
 
